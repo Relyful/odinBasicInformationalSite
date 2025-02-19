@@ -35,6 +35,16 @@ app.get("/contact-me", (req, res) => {
   });
 });
 
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "404.html"), (err) => {
+    if (err) {
+      console.log(err);      
+    } else {
+      console.log("Err sent@");
+    }
+  });
+});
+
 const PORT = 8080;
 
 app.listen(PORT, () => {
